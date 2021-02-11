@@ -60,6 +60,18 @@ export default {
                       fill: false,
                       borderWidth: 5,
                       data: [{x:1,y:2}]
+                    },
+                    {   
+                      label:'Orelha Direita',
+                      pointStyle: img1,
+                      showLine: false,
+                      backgroundColor: 'black',
+                      borderColor: 'black',
+                      pointBorderColor: 'black',
+                      radius: 15,
+                      fill: false,
+                      borderWidth: 5,
+                      data: [{x:2,y:3}]
                     }
         ]
       }
