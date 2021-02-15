@@ -11,11 +11,11 @@
         <div class="input-field col s3">
           <p>
             <label>
-              <input name="pointstyle" type="radio"  v-model="pointOption" :value="0"  />
+              <input name="pointstyle" type="radio" v-model="pointOption" :value="0"  />
               <span>Ponto 1</span>
             </label>
             <label>
-              <input name="pointstyle" type="radio"  v-model="pointOption" :value="1"/>
+              <input name="pointstyle" type="radio" v-model="pointOption" :value="1"/>
               <span>Ponto 2</span>
             </label>
           </p>
@@ -83,6 +83,9 @@ export default {
       
 
     methods:{
+        updateChart(){
+          this.$refs.linechartjs.renderChart(this.datacollection, this.options)
+        },
         generateImage(){
           return{
            image: this.$refs.linechartjs.base64Export()
@@ -90,12 +93,12 @@ export default {
         },
         insertData() {
           this.datacollection.datasets[this.pointOption].data.push({x: this.newDotsx, y: this.newDotsy})
-          this.$refs.linechartjs.renderChart(this.datacollection, this.options)
+          this.updateChart()
 
         },
         removeData(index,pointOption){
           this.datacollection.datasets[pointOption].data.splice(index,1)
-          this.$refs.linechartjs.renderChart(this.datacollection, this.options)
+          this.updateChart()
         }
       },
 
